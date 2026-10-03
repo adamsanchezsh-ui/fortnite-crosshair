@@ -1,0 +1,1 @@
+{"name":"fortnite-crosshair","version":"2.0.0","description":"Fortnite-only desktop crosshair overlay","main":"main.js","scripts":{"start":"electron .","dev":"electron ."},"devDependencies":{"electron":"^38.2.1"}}
