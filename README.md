@@ -1,2 +1,1 @@
-# fortnite-crosshair
-Custom Fortnite crosshair creator — choose, customize, preview, and export crosshairs.
+# Fortnite Crosshair Lab\n\nA simple browser-based custom crosshair creator for Fortnite.\n\n## Features\n- Live crosshair preview\n- Color, size, thickness and dot controls\n- Presets\n- Copy configuration\n\nOpen `index.html` locally or enable GitHub Pages.\n\n> This is a fan-made utility and is not affiliated with Epic Games.\n
