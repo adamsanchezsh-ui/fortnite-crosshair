@@ -1,4 +1,4 @@
-const {app,BrowserWindow,screen}=require('electron');
+const {app,BrowserWindow,screen,globalShortcut}=require('electron');
 const {exec}=require('child_process');
 
 let win;
@@ -12,11 +12,11 @@ function position(){
   const s=120;
   win.setBounds({x:Math.round(b.x+(b.width-s)/2)+OFFSET_X,y:Math.round(b.y+(b.height-s)/2)+OFFSET_Y,width:s,height:s},false);
 }
+function showOverlay(){position();win.showInactive();}
 async function sync(){
   if(!win)return;
   win.setIgnoreMouseEvents(true,{forward:true});
-  const active=await fortniteRunning();
-  if(active||!app.isPackaged){position();win.showInactive();}else win.hide();
+  showOverlay();
 }
 app.whenReady().then(()=>{
   win=new BrowserWindow({width:120,height:120,transparent:true,frame:false,resizable:false,show:false,alwaysOnTop:true,skipTaskbar:true,focusable:false,hasShadow:false});
@@ -24,6 +24,8 @@ app.whenReady().then(()=>{
   win.loadFile('overlay.html');
   setInterval(sync,1000);
   screen.on('display-metrics-changed',position);
+  globalShortcut.register('Control+Shift+X',()=>app.quit());
   sync();
 });
+app.on('will-quit',()=>globalShortcut.unregisterAll());
 app.on('window-all-closed',()=>{});
