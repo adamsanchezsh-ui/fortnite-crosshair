@@ -1,17 +1,18 @@
-# Fortnite Crosshair Lab
+# Fortnite Crosshair
 
-Windows desktop crosshair overlay for Fortnite.
+Desktop crosshair overlay for Fortnite.
 
-## Co umí
-- Crosshair je přesně ve středu primárního monitoru.
-- Overlay se automaticky zobrazí pouze když běží Fortnite (FortniteClient-Win64-Shipping.exe).
-- Po vypnutí Fortnite se overlay skryje.
-- Transparentní click-through okno nepřijímá myš ani klávesnici.
-- Obsahuje galerii běžných crosshair stylů, kterou lze rozšiřovat.
+## How it works
+- Shows a crosshair in the center of the primary monitor.
+- Adds a small default horizontal offset of +3 px.
+- The offset can be changed in `main.js` using `OFFSET_X` and `OFFSET_Y`.
+- In the packaged EXE, the overlay is visible only while Fortnite is running.
+- When launched during development, the overlay can be previewed even without Fortnite.
+- The overlay is click-through and does not read FPS, ping, game memory, or network telemetry.
+- It does not inject into or modify Fortnite files.
 
-## Spuštění
-1. Nainstaluj Node.js.
-2. V kořeni projektu spusť npm install.
-3. Spusť npm start.
+## Windows EXE
+GitHub Actions builds the Windows installer automatically on pushes to `main`. Download the `fortnite-crosshair-windows` artifact from the successful workflow run and unzip it to get the installer.
 
-Aplikace je pouze vizuální overlay a neinjektuje kód do Fortnite ani nemění herní soubory. Je to fan-made projekt, není spojený s Epic Games.
+## Presets
+See `presets.html` for the preset gallery.
